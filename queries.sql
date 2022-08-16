@@ -156,3 +156,24 @@ ORDER BY
     count DESC
 lIMIT
     1;
+
+
+//------------------------------------------------------------------------//////////////////////// 
+
+EXPLAIN ANALYZE SELECT COUNT(*) FROM visits where animal_id = 6;
+EXPLAIN ANALYZE SELECT * FROM visits where vet_id = 2;
+EXPLAIN ANALYZE SELECT * FROM owners where email = 'owner_18327@mail.com';
+
+CREATE INDEX idx_serial_id ON visits(animal_id);
+ANALYZE;
+
+
+CREATE INDEX idx_vet ON visits(vet_id) WHERE vet_id = 2;
+ANALYZE;
+
+
+
+
+CREATE INDEX idx_email ON owners(id)
+WHERE email = 'owner_18327@mail.com';
+ANALYZE;
